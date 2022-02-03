@@ -26,6 +26,7 @@ export default {
   ],
 
   plugins: [
+    '~/plugins/axios.js'
   ],
 
   components: true,
@@ -36,6 +37,7 @@ export default {
     '@nuxtjs/vuetify',
     '@nuxtjs/proxy',
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
 
   proxy: {
@@ -66,5 +68,30 @@ export default {
   },
 
   build: {
-  }
+  },
+
+  axios: {
+    baseURL: "http://localhost:3000"
+  },
+
+  auth: {
+    redirect: {
+      login: '/login', //middleware:authを設定したURLにアクセスがあった場合の、リダイレクト先。
+      logout: '/', //ログアウト後のリダイレクト先
+      callback: false,
+      home: '/' ///ログイン後のリダイレクト先。
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          //ログイン処理に関する設定
+          login: { url: '/api/auth/sign_in', method: 'post',propertyName: 'access_token'}, 
+          //ログアウト処理に関する設定
+          logout: { url: '/api/auth/sign_out', method: 'delete' },
+          //ログイン時にユーザー情報を保存するか。
+          user: false
+        },
+      }
+    },
+  },
 }
