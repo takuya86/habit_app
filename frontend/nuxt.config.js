@@ -6,6 +6,10 @@ export default {
     host: '0.0.0.0',
   },
 
+  publicRuntimeConfig: {
+    appName: process.env.APP_NAME,
+  },
+
   head: {
     titleTemplate: '%s - frontend',
     title: 'frontend',
@@ -41,8 +45,8 @@ export default {
   ],
 
   proxy: {
-    '/api': {
-      target: 'http://backend:3000',
+    '/api/v1': {
+      target: 'http://backend:5000',
       pathRewrite: {
         '^/api': '/api/v1/',
       },
@@ -52,7 +56,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -71,7 +75,7 @@ export default {
   },
 
   axios: {
-    baseURL: "http://localhost:3000"
+    baseURL: "http://localhost:5000"
   },
 
   auth: {
@@ -85,7 +89,7 @@ export default {
       local: {
         endpoints: {
           //ログイン処理に関する設定
-          login: { url: '/api/auth/sign_in', method: 'post',propertyName: 'access_token'}, 
+          login: { url: '/api/auth/sign_in', method: 'post',propertyName: 'access_token'},
           //ログアウト処理に関する設定
           logout: { url: '/api/auth/sign_out', method: 'delete' },
           //ログイン時にユーザー情報を保存するか。
