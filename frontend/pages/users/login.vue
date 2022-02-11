@@ -21,7 +21,7 @@
             <v-btn
               color="light-green darken-1"
               class="white--text"
-              @click="loginWithAuthModule"
+              @click="login"
             >
               ログイン
             </v-btn>
@@ -33,44 +33,30 @@
 </template>
 
 <script>
-export default {
-  name: 'App',
-  auth: false,
-  data() {
-    return {
-      password: '',
-      email: '',
-      error: null,
-    }
-  },
-  methods: {
-    // loginメソッドの呼び出し
-    async loginWithAuthModule() {
-      await this.$auth
-        .loginWith('local', {
-          // emailとpasswordの情報を送信
-          data: {
-            email: this.email,
-            password: this.password,
-          },
-        })
-        .then(
-          (response) => {
-            // レスポンスで返ってきた、認証に必要な情報をlocalStorageに保存
-            localStorage.setItem(
-              'access-token',
-              response.headers['access-token']
-            )
-            localStorage.setItem('client', response.headers.client)
-            localStorage.setItem('uid', response.headers.uid)
-            localStorage.setItem('token-type', response.headers['token-type'])
-            return response
-          },
-          (error) => {
-            return error
-          }
-        )
+  export default {
+    data: function () {
+      return {
+        email: '',
+        password: '',
+        error: null,
+      }
     },
-  },
-}
+    methods: {
+      async login() {
+          await this.$auth.loginWith('local', {
+            data: {
+              password: this.password,
+              email: this.email
+            }
+          })
+          .then(
+            (response) => {
+            },
+            (error) => {
+              this.error = error.response.data.errors
+            }
+          )
+      }
+    }
+  }
 </script>
