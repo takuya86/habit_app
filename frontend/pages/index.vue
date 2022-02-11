@@ -1,5 +1,10 @@
 <template>
-  <Header />
+  <div>
+    <Header />
+    <div v-if="this.$auth.loggedIn">
+      テスト
+    </div>
+  </div>
 </template>
 
 <script>
