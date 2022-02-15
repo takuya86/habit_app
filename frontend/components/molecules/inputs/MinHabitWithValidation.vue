@@ -6,19 +6,13 @@
     :vid="$attrs.label"
   >
     <v-text-field
-      v-model="min_target"
-      label="ミニマム目標"
-      rules="max:255|required"
-    >
-    </v-text-field>
-    <v-textarea
       v-model="inputValue"
       :error-messages="errors"
       :success="valid"
       v-bind="$attrs"
       v-on="$listeners"
     >
-    </v-textarea>
+    </v-text-field>
   </ValidationProvider>
 </template>
 <script>

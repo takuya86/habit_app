@@ -36,32 +36,42 @@
       <v-form>
         <v-card-text>
           <v-container>
-            <v-row>
-              <v-col cols="12">
-                <MinHabitWithValidation
-                  v-model="min_target"
-                  label="ミニマム目標"
-                  rules="max:120|required"
-                />
-              </v-col>
-              <v-col cols="12">
-                <TagsForm
-                  v-model="tag"
-                  :initTags="tags"
-                  @tags-changed="newTags => tags = newTags"
-                />
-              </v-col>
-              <v-col cols="12">
-                <v-row justify="center">
-                  <v-btn
-                    color="success"
-                    class="white--text"
-                    @click="createPost"
-                  >送信
-                  </v-btn>
-                </v-row>
-              </v-col>
-            </v-row>
+            <ValidationObserver v-slot="ObserverProps">
+              <v-row>
+                <v-col cols="12">
+                  <MinHabitWithValidation
+                    v-model="min_target"
+                    label="ミニマム目標"
+                    rules="max:120|required"
+                  />
+                </v-col>
+                <v-col cols="12">
+                  <MaxHabitWithValidation
+                    v-model="min_target"
+                    label="マックス目標"
+                    rules="max:120|required"
+                  />
+                </v-col>
+                <!-- <v-col cols="12">
+                  <TagsForm
+                    v-model="tag"
+                    :initTags="tags"
+                    @tags-changed="newTags => tags = newTags"
+                  />
+                </v-col> -->
+                <v-col cols="12">
+                  <v-row justify="center">
+                    <v-btn
+                      color="success"
+                      class="white--text"
+                      @click="createPost"
+                      :disabled="ObserverProps.invalid"
+                    >送信
+                    </v-btn>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </ValidationObserver>
           </v-container>
         </v-card-text>
       </v-form>
@@ -71,9 +81,11 @@
 
 <script>
 import MinHabitWithValidation from '~/components/molecules/inputs/MinHabitWithValidation.vue'
+import MaxHabitWithValidation from '~/components/molecules/inputs/MaxHabitWithValidation.vue'
 export default {
   components: {
     MinHabitWithValidation,
+    MaxHabitWithValidation,
   },
   data () {
     return {
