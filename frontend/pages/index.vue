@@ -1,17 +1,18 @@
 <template>
-  <div>
-    <Header />
-    <div v-if="this.$auth.loggedIn">
-      テスト
-    </div>
-  </div>
+  <v-container>
+    <h1>ハビット！</h1>
+    <p>習慣化を記録するアプリです。</p>
+    <h2>ログイン状態:{{ $auth.loggedIn }}</h2>
+  </v-container>
 </template>
 
 <script>
-import Header from '~/layouts/Header'
 export default {
-  components: {
-    Header,
-  },
+  data () {
+    id: this.$auth
+    console.log("ここ")
+    console.log(this.$auth.user)
+    console.log(this.$auth.user)
+  }
 }
 </script>
