@@ -72,7 +72,6 @@ export default {
         })
       } catch (e) {
         console.log(e), (this.error = e.response.data.errors.full_messages)
-        console.log(e.response.data)
       }
     },
   },

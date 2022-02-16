@@ -11,7 +11,8 @@ export default {
   data () {
     id: this.$auth
     console.log("ここ")
-    // console.log($nuxt.$store)
+    console.log(this.$auth.user)
+    console.log(this.$auth.user)
   }
 }
 </script>
