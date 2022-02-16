@@ -52,13 +52,6 @@
                     rules="max:120|required"
                   />
                 </v-col>
-                <!-- <v-col cols="12">
-                  <TagsForm
-                    v-model="tag"
-                    :initTags="tags"
-                    @tags-changed="newTags => tags = newTags"
-                  />
-                </v-col> -->
                 <v-col cols="12">
                   <v-row justify="center">
                     <v-btn

@@ -2,10 +2,16 @@
   <v-container>
     <h1>ハビット！</h1>
     <p>習慣化を記録するアプリです。</p>
+    <h2>ログイン状態:{{ $auth.loggedIn }}</h2>
   </v-container>
 </template>
 
 <script>
 export default {
+  data () {
+    id: this.$auth
+    console.log("ここ")
+    // console.log($nuxt.$store)
+  }
 }
 </script>
