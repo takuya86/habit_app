@@ -30,7 +30,9 @@ export default {
   ],
 
   plugins: [
-    '~/plugins/axios.js'
+    '~/plugins/axios.js',
+    '@/plugins/vee-validate.js',
+
   ],
 
   components: true,
@@ -72,6 +74,9 @@ export default {
   },
 
   build: {
+    transpile: [
+      "vee-validate/dist/rules"
+    ],
   },
 
   axios: {
