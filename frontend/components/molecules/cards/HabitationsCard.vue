@@ -5,7 +5,7 @@
     max-width="400"
   >
     <v-toolbar
-        class="cyan darken-1"
+        class="blue-grey lighten-1"
         flat
       >
         <v-toolbar-title
@@ -45,7 +45,7 @@
       <v-list-item class="grow">
 
         <v-list-item-content>
-          <v-list-item-title>Evan You</v-list-item-title>
+          <v-list-item-title>ユーザーの名前が入る</v-list-item-title>
         </v-list-item-content>
 
         <v-row
@@ -61,3 +61,8 @@
     </v-card-actions>
   </v-card>
 </template>
+
+<script>
+export default {
+}
+</script>

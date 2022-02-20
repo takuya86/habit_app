@@ -13,11 +13,5 @@ export default {
   components: {
     HabitationsCard,
   },
-  data () {
-    id: this.$auth
-    console.log("ここ")
-    console.log(this.$auth.user)
-    console.log(this.$auth.user)
-  }
 }
 </script>
