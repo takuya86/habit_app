@@ -4,7 +4,6 @@ class Api::V1::UsersController < ApplicationController
   def mypage
     if current_api_v1_user
       render json: current_api_v1_user
-      binding.pry
     else
       puts "中身あるか#{current_api_v1_user}"
       render json: { error: 'ログインしてません' }, status: :not_found

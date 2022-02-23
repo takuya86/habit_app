@@ -86,6 +86,44 @@ export default {
       max_target: '',
     }
   },
+  methods: {
+    createHabitaion() {
+      const 
+    },
+    async createHabitaion () {
+      const data = new FormData()
+      const config = {
+        headders: {
+          'content-type': 'multipart/form-data'
+        }
+      }
+      data.append('habitaion[description]', this.description)
+      data.append('habitaion[user_id]', this.$store.state.modules.user.data.id)
+      data.append('habitaion[uid]', this.$store.state.modules.user.user.uid)
+      this.$axios.$post(process.env.BROWSER_BASE_URL + '/v1/posts', data, config)
+        .then(res => {
+          console.log('投稿に成功しました')
+          this.$emit('createPost', res)
+          this.$emit('closeDialog')
+          this.description = ''
+          this.tags = []
+          this.setFlash({
+            status: true,
+            message: "投稿に成功しました"
+          })
+          setTimeout(() => {
+            this.setFlash({
+              status: false,
+              message: ""
+            })
+          }, 2000)
+        })
+        .catch((error) => {
+          console.log('投稿に失敗しました')
+          console.log('error')
+        })
+    },
+  },
   closeDialog () {
     this.$emit('closeDialog')
     this.description = ''

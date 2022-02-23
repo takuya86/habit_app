@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_14_145611) do
+ActiveRecord::Schema.define(version: 2022_02_23_142420) do
 
   create_table "habitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "min_target", default: "", null: false
     t.string "max_target", default: "", null: false
-    t.integer "period", default: 0, null: false
     t.text "thoughts"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "period"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
