@@ -47,7 +47,7 @@
                 </v-col>
                 <v-col cols="12">
                   <MaxHabitWithValidation
-                    v-model="min_target"
+                    v-model="max_target"
                     label="マックス目標"
                     rules="max:120|required"
                   />
@@ -57,7 +57,7 @@
                     <v-btn
                       color="success"
                       class="white--text"
-                      @click="createPost"
+                      @click="createHabitaion"
                       :disabled="ObserverProps.invalid"
                     >送信
                     </v-btn>
@@ -73,6 +73,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import MinHabitWithValidation from '~/components/molecules/inputs/MinHabitWithValidation.vue'
 import MaxHabitWithValidation from '~/components/molecules/inputs/MaxHabitWithValidation.vue'
 export default {
@@ -80,16 +81,28 @@ export default {
     MinHabitWithValidation,
     MaxHabitWithValidation,
   },
+  props: {
+    dialog: {
+      type: Boolean,
+      required: true
+    },
+  },
   data () {
     return {
+      dialogStatus: this.dialog,
       min_target: '',
       max_target: '',
     }
   },
-  methods: {
-    createHabitaion() {
-      const 
+  watch: {
+    dialog (newValue) {
+      this.dialogStatus = newValue
     },
+  },
+  methods: {
+    ...mapActions({
+      setFlash: "modules/info/setFlash",
+    }),
     async createHabitaion () {
       const data = new FormData()
       const config = {
@@ -97,16 +110,14 @@ export default {
           'content-type': 'multipart/form-data'
         }
       }
-      data.append('habitaion[description]', this.description)
-      data.append('habitaion[user_id]', this.$store.state.modules.user.data.id)
-      data.append('habitaion[uid]', this.$store.state.modules.user.user.uid)
-      this.$axios.$post(process.env.BROWSER_BASE_URL + '/v1/posts', data, config)
+      data.append('min_target', this.min_target)
+      data.append('max_target', this.max_target)
+      this.$axios.$post(process.env.BROWSER_BASE_URL + '/v1/habitations', data, config)
         .then(res => {
           console.log('投稿に成功しました')
-          this.$emit('createPost', res)
+          this.$emit('createHabitaion', res)
           this.$emit('closeDialog')
           this.description = ''
-          this.tags = []
           this.setFlash({
             status: true,
             message: "投稿に成功しました"
@@ -120,14 +131,13 @@ export default {
         })
         .catch((error) => {
           console.log('投稿に失敗しました')
-          console.log('error')
+          console.log(error)
         })
     },
   },
   closeDialog () {
     this.$emit('closeDialog')
-    this.description = ''
-    this.tags = []
+    console.log('クローズ')
   },
 }
 </script>
