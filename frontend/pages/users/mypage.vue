@@ -30,14 +30,11 @@ export default {
   async asyncData({ $axios }) {
     try {
       const res = await $axios.get(`/api/v1/users/mypage`);
-      console.log(res);
-      console.log("ここ");
       return {
         authUser: res.data
       };
     } catch (e) {
       console.log(e.response.data.error);
-      console.log("ここ");
       alert("ログインユーザー取得失敗。ログインできてない。");
     }
   }

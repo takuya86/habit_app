@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "build:stg": "cross-env NODE_ENV=\"staging\" nuxt build",
+    "build:prod": "cross-env NODE_ENV=\"production\" nuxt build",
     "start": "nuxt start",
+    "start:stg": "cross-env NODE_ENV=\"staging\" nuxt start",
+    "start:prod": "cross-env NODE_ENV=\"production\" nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
@@ -13,6 +17,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.9.1",
+    "cross-env": "^7.0.3",
     "nuxt": "^2.15.8",
     "vee-validate": "3"
   },
