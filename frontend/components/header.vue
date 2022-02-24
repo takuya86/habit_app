@@ -1,7 +1,9 @@
 <template>
   <v-app-bar app dark>
     <v-toolbar-title>
-      {{ appName }}
+      <n-link to="/" style="color:white; text-decoration:none">
+        {{ appName }}
+      </n-link>
     </v-toolbar-title>
     <v-spacer />
     <v-btn v-if="!this.$auth.loggedIn" color="#FFF" plain to="/auth/signin">ログイン</v-btn>

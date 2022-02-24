@@ -1,6 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
 
+const environment = process.env.NODE_ENV || 'development';
+const envSet = require(`./env.${environment}.js`)
+
 export default {
+
+  env: envSet,
+
   server: {
     port: 3000,
     host: '0.0.0.0',
@@ -22,7 +28,6 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 

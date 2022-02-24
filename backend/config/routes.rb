@@ -7,9 +7,11 @@ Rails.application.routes.draw do
         end
       end
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/auth/registrations'
-        # sessions: 'api/v1/auth/sessions'
+        registrations: 'api/v1/auth/registrations',
+        sessions: 'api/v1/auth/sessions',
       }
+
+      resources :habitations
     end
   end
 end
