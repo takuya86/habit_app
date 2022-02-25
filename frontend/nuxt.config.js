@@ -42,15 +42,6 @@ export default {
 
   components: true,
 
-  buildModules: [],
-
-  modules: [
-    '@nuxtjs/vuetify',
-    '@nuxtjs/proxy',
-    '@nuxtjs/axios',
-    '@nuxtjs/auth',
-  ],
-
   proxy: {
     '/api/v1': {
       target: 'http://backend:5000',
@@ -83,6 +74,15 @@ export default {
       "vee-validate/dist/rules"
     ],
   },
+
+  buildModules: [],
+
+  modules: [
+    '@nuxtjs/vuetify',
+    '@nuxtjs/proxy',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+  ],
 
   axios: {
     baseURL: "http://localhost:5000"

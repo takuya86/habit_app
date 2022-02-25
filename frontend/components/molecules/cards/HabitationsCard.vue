@@ -57,6 +57,7 @@
           </v-icon>
           <span class="subheading mr-2">256</span>
         </v-row>
+        <div>{{ habitations }}</div>
       </v-list-item>
     </v-card-actions>
   </v-card>
@@ -64,5 +65,32 @@
 
 <script>
 export default {
+  // data() {
+  //   return {
+  //     habitations: ''
+  //   };
+  // },
+  // mounted() {
+  //   this.asyncData()
+  // },
+  // asyncData() {
+  //   await axios.get(`/api/v1/habitations`)
+  //   .then(res => {
+  //     console.log(res)
+  //     this.habitations = res.data.habitations
+  //   })
+  // }
+  // async asyncData({ $axios }) {
+  //   try {
+  //     const res = await $axios.get(`/api/v1/habitations`);
+  //       console.log('ここ')
+  //       console.log(res.data)
+  //     return {
+  //       habitations: res.data
+  //     };
+  //   } catch (e) {
+  //     console.log(e.response.data.error);
+  //   }
+  // }
 }
 </script>

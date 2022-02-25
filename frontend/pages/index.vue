@@ -13,5 +13,13 @@ export default {
   components: {
     HabitationsCard,
   },
+  async asyncData({ $axios }) {
+    const response = await $axios.$get("/api/v1/habitations")
+      .catch( errer => {
+        console.log("response erre", errer)
+        return false
+      })
+    return { data: response.data }
+  }
 }
 </script>

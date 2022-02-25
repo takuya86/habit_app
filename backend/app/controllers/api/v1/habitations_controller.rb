@@ -1,6 +1,7 @@
 class Api::V1::HabitationsController < ApplicationController
   def index
-    habitation = Habitation.all
+    habitations = Habitation.all
+    render json: habitations
   end
 
   def create
