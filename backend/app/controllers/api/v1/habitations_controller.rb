@@ -16,6 +16,6 @@ class Api::V1::HabitationsController < ApplicationController
   private
 
   def habitaiotn_params
-    params.permit(:min_target, :max_target, :period, :thoughts)
+    params.permit(:min_target, :max_target, :period, :thoughts, :user_id)
   end
 end

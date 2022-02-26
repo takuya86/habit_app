@@ -47,7 +47,7 @@
           <v-list-item class="grow">
 
             <v-list-item-content>
-              <v-list-item-title>ユーザーの名前が入る</v-list-item-title>
+              <v-list-item-title>{{ habitation.user }}</v-list-item-title>
             </v-list-item-content>
 
             <v-row
@@ -62,6 +62,7 @@
           </v-list-item>
         </v-card-actions>
       </v-card>
+      <span>{{ $store.state.user }}</span>
     </v-col>
   </div>
 </template>
@@ -79,6 +80,7 @@ export default {
       .then(res => {
         this.habitations = res.data
       })
+      console.log(this.$store)
     }
 }
 </script>

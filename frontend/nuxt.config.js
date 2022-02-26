@@ -42,6 +42,15 @@ export default {
 
   components: true,
 
+  buildModules: [],
+
+  modules: [
+    '@nuxtjs/vuetify',
+    '@nuxtjs/proxy',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+  ],
+
   proxy: {
     '/api/v1': {
       target: 'http://backend:5000',
@@ -75,15 +84,6 @@ export default {
     ],
   },
 
-  buildModules: [],
-
-  modules: [
-    '@nuxtjs/vuetify',
-    '@nuxtjs/proxy',
-    '@nuxtjs/axios',
-    '@nuxtjs/auth',
-  ],
-
   axios: {
     baseURL: "http://localhost:5000"
   },
@@ -99,11 +99,11 @@ export default {
       local: {
         endpoints: {
           //ログイン処理に関する設定
-          login: { url: '/api/v1/auth/sign_in', method: 'post',propertyName: 'access_token'},
+          login: { url: '/api/v1/auth/sign_in', method: 'post', propertyName: 'access_token'},
           //ログアウト処理に関する設定
           logout: { url: '/api/v1/auth/sign_out', method: 'delete' },
           //ログイン時にユーザー情報を保存するか。
-          user: false
+          user: { url: '/api/v1/auth/users', method: 'get', propertyName: 'user' }
         },
       }
     },
