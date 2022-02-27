@@ -1,12 +1,20 @@
+export const strict = false
+
 export const state = () => ({
   user: null
 })
 
 export const mutations = {
-  login(state, user) {
-    state.user = user
+  setUser(state, payload) {
+    state.user = payload
   },
   logout(state) {
     state.user = null
   }
+}
+
+export const actions = {
+  setUser(context, user) {
+    context.commit('setUser', user)
+  },
 }

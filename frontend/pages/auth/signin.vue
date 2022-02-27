@@ -33,6 +33,8 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     data: function () {
       return {
@@ -42,6 +44,7 @@
       }
     },
     methods: {
+      ...mapActions(['setUser']),
       async login() {
           await this.$auth.loginWith('local', {
             data: {
@@ -51,6 +54,7 @@
           })
           .then(
             (response) => {
+              this.setUser(response)
             },
             (error) => {
               this.error = error.response.data.errors
