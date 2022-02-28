@@ -62,23 +62,28 @@
           </v-list-item>
         </v-card-actions>
       </v-card>
-      <span>{{ $store.state.user }}</span>
+      <span>{{ $store.state }}</span>
     </v-col>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import { mapActions } from 'vuex'
 export default {
   data () {
     return {
       habitations: [],
     }
   },
+  methods: {
+    ...mapActions(['setUser']),
+  },
   created() {
     axios.get(`http://localhost:5000/api/v1/habitations`)
       .then(res => {
         this.habitations = res.data
+        this.setUser(response)
       })
       console.log(this.$store)
     }
