@@ -1,12 +1,20 @@
-// import {getUserFromCookie, getUserFromSession} from '@/helpers'
+export const strict = false
 
-// export const actions = {
+export const state = () => ({
+  user: null
+})
 
-//   async nuxtServerInit ({ dispatch }, { req }) {
-//     const user = getUserFromCookie(req)
-//     if (user) {
-//       await dispatch('modules/user/setUser', { email: user.email, uid: user.user_id })
-//       await dispatch('modules/user/loadData', user.user_id )
-//     }
-//   }
-// }
+export const mutations = {
+  setUser(state, payload) {
+    state.user = payload
+  },
+  logout(state) {
+    state.user = null
+  }
+}
+
+export const actions = {
+  setUser(context, user) {
+    context.commit('setUser', user)
+  },
+}
