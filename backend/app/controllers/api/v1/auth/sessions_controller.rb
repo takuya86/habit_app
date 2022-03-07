@@ -1,12 +1,7 @@
-class Api::V1::Auth::SessionsController < ApplicationController
+class Api::V1::Auth::SessionsController < DeviseTokenAuth::SessionsController
   before_action :cookie_destroy
 
-  def create
-    if current_api_v1_user
-      render json: { is_login: true, data: current_api_v1_user }
-    else
-      render json: { is_login: false, message: "ユーザーが存在しません" }
-    end
+  def cookie_destroy
+    request.session_options[:skip] = true
   end
-
 end

@@ -62,7 +62,7 @@
           </v-list-item>
         </v-card-actions>
       </v-card>
-      <span>{{ $store.state }}</span>
+      <span>{{ $auth }}</span>
     </v-col>
   </div>
 </template>
@@ -85,7 +85,7 @@ export default {
         this.habitations = res.data
         this.setUser(response)
       })
-      console.log(this.$store)
-    }
+      console.log(this.$auth.user)
+  }
 }
 </script>

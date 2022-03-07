@@ -112,13 +112,9 @@ export default {
       }
       data.append('min_target', this.min_target)
       data.append('max_target', this.max_target)
-      data.append('user_id', 2)
-      conosle.log("ここ")
-      conosle.log(this.$auth)
       this.$axios.$post(process.env.BROWSER_BASE_URL + '/api/v1/habitations', data, config)
         .then(res => {
           console.log('投稿に成功しました')
-          console.log(process.env.BROWSER_BASE_URL)
           this.$emit('createHabitaion', res)
           this.$emit('closeDialog')
           this.description = ''
