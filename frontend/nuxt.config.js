@@ -97,12 +97,17 @@ export default {
     },
     strategies: {
       local: {
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
         endpoints: {
           //ログイン処理に関する設定
           login: { url: '/api/v1/auth/sign_in', method: 'post', propertyName: 'access_token'},
           //ログアウト処理に関する設定
           logout: { url: '/api/v1/auth/sign_out', method: 'destroy' },
           //ログイン時にユーザー情報を保存するか。
+          // user: { url: '/api/v1/users/mypage', method: 'get' }
           user: false
         },
       }

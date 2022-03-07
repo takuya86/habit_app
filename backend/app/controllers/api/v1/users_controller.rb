@@ -8,4 +8,8 @@ class Api::V1::UsersController < ApplicationController
       render json: { error: 'ログインしてません' }, status: :not_found
     end
   end
+
+  def cookie_destroy
+    request.session_options[:skip] = true
+  end
 end
