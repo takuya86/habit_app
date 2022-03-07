@@ -86,6 +86,6 @@ export default {
         this.setUser(response)
       })
       console.log(this.$store)
-    }
+  }
 }
 </script>
