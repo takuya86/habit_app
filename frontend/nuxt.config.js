@@ -37,7 +37,6 @@ export default {
   plugins: [
     '~/plugins/axios.js',
     '@/plugins/vee-validate.js',
-
   ],
 
   components: true,

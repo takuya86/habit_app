@@ -112,6 +112,7 @@ export default {
       }
       data.append('min_target', this.min_target)
       data.append('max_target', this.max_target)
+      // data.append('post[user_id]', this.$store.state.modules.user.data.id)
       this.$axios.$post(process.env.BROWSER_BASE_URL + '/api/v1/habitations', data, config)
         .then(res => {
           console.log('投稿に成功しました')
