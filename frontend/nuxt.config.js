@@ -37,6 +37,8 @@ export default {
   plugins: [
     '~/plugins/axios.js',
     '@/plugins/vee-validate.js',
+    { src: '~/plugins/persistedstate.js', ssr: false }
+
   ],
 
   components: true,
