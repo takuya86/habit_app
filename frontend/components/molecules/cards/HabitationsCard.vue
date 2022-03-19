@@ -25,7 +25,7 @@
               <v-card-title>
                 <span>ミニマム目標</span>
               </v-card-title>
-              <div>テスト</div>
+              <div>{{ habitation.min_target }}</div>
             </v-card>
           </v-col>
           <v-col>
@@ -37,7 +37,7 @@
               <v-card-title>
                 <span class="text-h6 font-weight-bold">マックス目標</span>
               </v-card-title>
-              <div>テスト</div>
+              <div>{{ habitation.max_target }}</div>
             </v-card>
           </v-col>
         </v-row>
@@ -66,5 +66,11 @@
 
 <script>
 export default {
+  props: {
+    habitation: {
+      type: Object,
+      default: {}
+    }
+  }
 }
 </script>
