@@ -112,7 +112,8 @@ export default {
       }
       data.append('min_target', this.min_target)
       data.append('max_target', this.max_target)
-      this.$axios.$post(process.env.BROWSER_BASE_URL + '/v1/habitations', data, config)
+      data.append('user_id', this.$store.state.user.data.data.id)
+      this.$axios.$post(process.env.BROWSER_BASE_URL + '/api/v1/habitations', data, config)
         .then(res => {
           console.log('投稿に成功しました')
           this.$emit('createHabitaion', res)

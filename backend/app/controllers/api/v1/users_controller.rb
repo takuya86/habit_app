@@ -5,7 +5,6 @@ class Api::V1::UsersController < ApplicationController
     if current_api_v1_user
       render json: current_api_v1_user
     else
-      puts "中身あるか#{current_api_v1_user}"
       render json: { error: 'ログインしてません' }, status: :not_found
     end
   end

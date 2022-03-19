@@ -6,6 +6,10 @@
         <v-simple-table v-if="authUser != null">
           <template v-slot:default>
             <tr>
+              <td>id</td>
+              <td>{{ authUser.id }}</td>
+            </tr>
+            <tr>
               <td>名前</td>
               <td>{{ authUser.name }}</td>
             </tr>
