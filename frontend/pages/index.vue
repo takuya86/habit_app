@@ -25,6 +25,7 @@ export default {
     axios.get(`http://localhost:5000/api/v1/habitations`)
       .then(res => {
         this.habitations = res.data
+        console.log(this.habitations)
       })
   }
 }
