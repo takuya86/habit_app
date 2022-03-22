@@ -46,7 +46,7 @@
         <v-list-item class="grow">
 
           <v-list-item-content>
-            <v-list-item-title>{{ habitation }}</v-list-item-title>
+            <v-list-item-title>{{ habitation.user_id }}</v-list-item-title>
           </v-list-item-content>
 
           <v-row

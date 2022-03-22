@@ -26,8 +26,6 @@ export default {
       .then(res => {
         this.habitations = res.data
         console.log(this.habitations)
-        console.log(this.$auth)
-        console.log(this.$store.state.user.data.data.id)
       })
   }
 }

@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  # has_many :habitations, dependent: :destroy
+  has_many :habitations, dependent: :destroy
 end
