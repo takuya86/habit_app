@@ -1,7 +1,7 @@
 class Api::V1::HabitationsController < ApplicationController
   def index
-    habitations = Habitation.all
-    render json: habitations
+    @habitations = Habitation.all
+    render json: @habitations.to_json(include:[:user])
   end
 
   def create
