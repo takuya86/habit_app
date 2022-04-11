@@ -1,5 +1,5 @@
 <template>
-  <v-col>
+  <v-col >
     <v-card
       class="mx-auto"
       color="#FFFFFF"
@@ -15,40 +15,23 @@
             習慣化目標
           </v-toolbar-title>
         </v-toolbar>
-        <v-row>
-          <v-col>
-            <v-card
-              class="mx-auto"
-              color="#FFFFFF"
-              max-width="160"
-            >
-              <v-card-title>
-                <span>ミニマム目標</span>
-              </v-card-title>
-              <div>{{ habitation.min_target }}</div>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card
-              class="mx-auto"
-              color="#FFFFFF"
-              max-width="160"
-            >
-              <v-card-title>
-                <span class="text-h6 font-weight-bold">マックス目標</span>
-              </v-card-title>
-              <div>{{ habitation.max_target }}</div>
-            </v-card>
-          </v-col>
-        </v-row>
-
+          <v-card-title>
+            <span>ミニマム目標</span>
+          </v-card-title>
+          <div class="habit_target">
+            {{ habitation.min_target }}
+          </div>
+          <v-card-title>
+            <span>マックス目標</span>
+          </v-card-title>
+          <div class="habit_target">
+            {{ habitation.max_target }}
+          </div>
       <v-card-actions>
         <v-list-item class="grow">
-
           <v-list-item-content>
             <v-list-item-title>{{ habitation.user.name }}</v-list-item-title>
           </v-list-item-content>
-
           <v-row
             align="center"
             justify="end"
@@ -74,3 +57,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .habit_target {
+    padding-left: 16px;
+  }
+</style>
