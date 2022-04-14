@@ -1,56 +1,66 @@
 <template>
-  <v-col >
-    <v-card
-      class="mx-auto"
-      color="#FFFFFF"
-      max-width="400"
+  <v-row
+    class="mb-6"
+    no-gutters
+  >
+    <v-col
+      v-for="n in 3"
+      :key="n"
+      cols="12"
+      md="4"
     >
-      <v-toolbar
-          class="blue-grey lighten-1"
-          flat
-        >
-          <v-toolbar-title
-            class="white--text font-weight-bold"
+      <v-card
+        class="mx-auto"
+        color="#FFFFFF"
+        max-width="400"
+      >
+        <v-toolbar
+            class="blue-grey lighten-1"
+            flat
           >
-            習慣化目標
-          </v-toolbar-title>
-        </v-toolbar>
-          <table class="habitation_card__content--wrapper">
-            <tr class="habitation_card__content--inner">
-              <td class="habitation_card__content--heading">
-                ミニマム目標
-              </td>
-              <td class="habitation_card__content--txt">
-                {{ habitation.min_target }}
-              </td>
-            </tr>
-            <tr class="habitation_card__content--inner">
-              <td class="habitation_card__content--heading">
-                マックス目標
-              </td>
-              <td class="habitation_card__content--txt">
-                {{ habitation.max_target }}
-              </td>
-            </tr>
-          </table>
-      <v-card-actions>
-        <v-list-item class="grow">
-          <v-list-item-content>
-            <v-list-item-title>{{ habitation.user.name }}</v-list-item-title>
-          </v-list-item-content>
-          <v-row
-            align="center"
-            justify="end"
-          >
-            <v-icon class="mr-1">
-              mdi-heart
-            </v-icon>
-            <span class="subheading mr-2">256</span>
-          </v-row>
-        </v-list-item>
-      </v-card-actions>
-    </v-card>
-  </v-col>
+            <v-toolbar-title
+              class="white--text font-weight-bold"
+            >
+              習慣化目標
+            </v-toolbar-title>
+          </v-toolbar>
+            <table class="habitation_card__content--wrapper">
+              <tr class="habitation_card__content--inner">
+                <td class="habitation_card__content--heading">
+                  ミニマム目標
+                </td>
+                <td class="habitation_card__content--txt">
+                  {{ habitation.min_target }}
+                </td>
+              </tr>
+              <tr class="habitation_card__content--inner">
+                <td class="habitation_card__content--heading">
+                  マックス目標
+                </td>
+                <td class="habitation_card__content--txt">
+                  {{ habitation.max_target }}
+                </td>
+              </tr>
+            </table>
+        <v-card-actions>
+          <v-list-item class="grow">
+            <v-list-item-content>
+              <v-list-item-title>{{ habitation.user.name }}</v-list-item-title>
+            </v-list-item-content>
+            <v-row
+              align="center"
+              justify="end"
+            >
+              <v-icon class="mr-1">
+                mdi-heart
+              </v-icon>
+              <span class="subheading mr-2">256</span>
+            </v-row>
+          </v-list-item>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
