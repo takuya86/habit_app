@@ -15,18 +15,24 @@
             習慣化目標
           </v-toolbar-title>
         </v-toolbar>
-          <v-card-title>
-            <span>ミニマム目標</span>
-          </v-card-title>
-          <div class="habit_target">
-            {{ habitation.min_target }}
-          </div>
-          <v-card-title>
-            <span>マックス目標</span>
-          </v-card-title>
-          <div class="habit_target">
-            {{ habitation.max_target }}
-          </div>
+          <table class="habitation_card__content--wrapper">
+            <tr class="habitation_card__content--inner">
+              <td class="habitation_card__content--heading">
+                ミニマム目標
+              </td>
+              <td class="habitation_card__content--txt">
+                {{ habitation.min_target }}
+              </td>
+            </tr>
+            <tr class="habitation_card__content--inner">
+              <td class="habitation_card__content--heading">
+                マックス目標
+              </td>
+              <td class="habitation_card__content--txt">
+                {{ habitation.max_target }}
+              </td>
+            </tr>
+          </table>
       <v-card-actions>
         <v-list-item class="grow">
           <v-list-item-content>
@@ -61,5 +67,21 @@ export default {
 <style scoped>
   .habit_target {
     padding-left: 16px;
+  }
+  .habitation_card__content--wrapper {
+    margin: 15px 0 0 24px;
+    border-collapse: collapse;
+  }
+  .habitation_card__content--inner {
+    border-bottom: 1px solid #C4C4C4;
+  }
+  .habitation_card__content--heading {
+    max-width: 120px;
+    padding: 10px;
+    background: #F7F7F7;
+  }
+  .habitation_card__content--txt {
+    width: 200px;
+    padding: 10px;
   }
 </style>
