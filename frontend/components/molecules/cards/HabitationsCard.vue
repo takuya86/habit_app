@@ -3,45 +3,30 @@
     class="mb-6"
     no-gutters
   >
-    <v-col
-      v-for="n in 3"
-      :key="n"
-      cols="12"
-      md="4"
-    >
+    <v-col>
       <v-card
         class="mx-auto"
         color="#FFFFFF"
         max-width="400"
       >
-        <v-toolbar
-            class="blue-grey lighten-1"
-            flat
-          >
-            <v-toolbar-title
-              class="white--text font-weight-bold"
-            >
-              習慣化目標
-            </v-toolbar-title>
-          </v-toolbar>
-            <table class="habitation_card__content--wrapper">
-              <tr class="habitation_card__content--inner">
-                <td class="habitation_card__content--heading">
-                  ミニマム目標
-                </td>
-                <td class="habitation_card__content--txt">
-                  {{ habitation.min_target }}
-                </td>
-              </tr>
-              <tr class="habitation_card__content--inner">
-                <td class="habitation_card__content--heading">
-                  マックス目標
-                </td>
-                <td class="habitation_card__content--txt">
-                  {{ habitation.max_target }}
-                </td>
-              </tr>
-            </table>
+        <table class="habitation_card__content--wrapper">
+          <tr class="habitation_card__content--inner">
+            <td class="habitation_card__content--heading">
+              ミニマム目標
+            </td>
+            <td class="habitation_card__content--txt">
+              {{ habitation.min_target }}
+            </td>
+          </tr>
+          <tr class="habitation_card__content--inner">
+            <td class="habitation_card__content--heading">
+              マックス目標
+            </td>
+            <td class="habitation_card__content--txt">
+              {{ habitation.max_target }}
+            </td>
+          </tr>
+        </table>
         <v-card-actions>
           <v-list-item class="grow">
             <v-list-item-content>
