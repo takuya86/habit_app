@@ -1,54 +1,15 @@
 <template>
-  <v-col>
+  <v-container>
     <v-card
-      class="mx-auto"
+      class="mx-auto habitcards"
       color="#FFFFFF"
       max-width="400"
     >
-      <v-toolbar
-          class="blue-grey lighten-1"
-          flat
-        >
-          <v-toolbar-title
-            class="white--text font-weight-bold"
-          >
-            習慣化目標
-          </v-toolbar-title>
-        </v-toolbar>
-        <v-row>
-          <v-col>
-            <v-card
-              class="mx-auto"
-              color="#FFFFFF"
-              max-width="160"
-            >
-              <v-card-title>
-                <span>ミニマム目標</span>
-              </v-card-title>
-              <div>{{ habitation.min_target }}</div>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card
-              class="mx-auto"
-              color="#FFFFFF"
-              max-width="160"
-            >
-              <v-card-title>
-                <span class="text-h6 font-weight-bold">マックス目標</span>
-              </v-card-title>
-              <div>{{ habitation.max_target }}</div>
-            </v-card>
-          </v-col>
-        </v-row>
-
       <v-card-actions>
         <v-list-item class="grow">
-
           <v-list-item-content>
             <v-list-item-title>{{ habitation.user.name }}</v-list-item-title>
           </v-list-item-content>
-
           <v-row
             align="center"
             justify="end"
@@ -60,8 +21,26 @@
           </v-row>
         </v-list-item>
       </v-card-actions>
+      <table class="habitation_card__content--wrapper">
+        <tr class="habitation_card__content--inner">
+          <td class="habitation_card__content--heading">
+            ミニマム目標
+          </td>
+          <td class="habitation_card__content--txt">
+            {{ habitation.min_target }}
+          </td>
+        </tr>
+        <tr class="habitation_card__content--inner">
+          <td class="habitation_card__content--heading">
+            マックス目標
+          </td>
+          <td class="habitation_card__content--txt">
+            {{ habitation.max_target }}
+          </td>
+        </tr>
+      </table>
     </v-card>
-  </v-col>
+  </v-container>
 </template>
 
 <script>
@@ -74,3 +53,28 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .habitcards {
+    padding: 15px;
+  }
+  .habit_target {
+    padding-left: 16px;
+  }
+  .habitation_card__content--wrapper {
+    margin: 15px 0 0 24px;
+    border-collapse: collapse;
+  }
+  .habitation_card__content--inner {
+    border-bottom: 1px solid #C4C4C4;
+  }
+  .habitation_card__content--heading {
+    max-width: 120px;
+    padding: 10px;
+    background: #F7F7F7;
+  }
+  .habitation_card__content--txt {
+    width: 200px;
+    padding: 10px;
+  }
+</style>
