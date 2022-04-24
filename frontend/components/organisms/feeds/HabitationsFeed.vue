@@ -9,54 +9,44 @@
         color="#FFFFFF"
         max-width="400"
       >
-      <v-tab
-        @change="changeNewPosts"
-        class="ma-0 pa-0"
-      >
-        習慣化目標
-        <v-icon>mdi-clock-time-eight</v-icon>
-      </v-tab>
-        <v-tabs
-          fixed-tabs
-          centered
+        <v-toolbar
           background-color="cyan darken-1"
           color="white"
-          slider-color="orange"
-          icons-and-text
         >
-        </v-tabs>
-        <v-tabs-items v-model="tab" touchless>
-          <v-tab-item class="pa-1">
-            <HabitationsCard
-              v-for=" habitation in habitations" :key="habitation.id" :habitation="habitation"
-            />
-          </v-tab-item>
-          <v-tab-item class="pa-1">
-            <FollowingUsers
-              v-if="$store.state.modules.user.data"
-              :load="loadFollowingUsers"
-            />
-            <v-card flat v-else class="text-center">
-              <span>ログインするとフォローユーザーのつぶやきを一覧表示します。</span>
-            </v-card>
-          </v-tab-item>
-        </v-tabs-items>
+          <v-toolbar-title
+            class="ma-0 pa-0"
+          >
+            <v-icon>mdi-clock-time-eight</v-icon>
+            習慣化目標
+          </v-toolbar-title>
+        </v-toolbar>
+        <HabitationsCard
+          v-for=" habitation in habitations" :key="habitation.id" :habitation="habitation"
+        />
       </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import HabitationsCard from '~/components/molecules/cards/HabitationsCard.vue'
+import axios from 'axios';
+import HabitationsCard from '~/components/molecules/cards/HabitationsCard'
+
 export default {
   components: {
     HabitationsCard
   },
-  props: {
-    habitation: {
-      type: Object,
-      default: {}
+  data () {
+    return {
+      habitations: [],
     }
+  },
+  created() {
+    axios.get(`http://localhost:5000/api/v1/habitations`)
+      .then(res => {
+        this.habitations = res.data
+        console.log(this.habitations)
+      })
   }
 }
 </script>
@@ -75,7 +65,7 @@ export default {
   .habitation_card__content--heading {
     max-width: 120px;
     padding: 10px;
-    background: #F7F7F7;
+    /* background: #F7F7F7; */
   }
   .habitation_card__content--txt {
     width: 200px;
