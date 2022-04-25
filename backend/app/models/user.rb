@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :habitations, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
 end
