@@ -11,8 +11,8 @@ Rails.application.routes.draw do
         sessions: 'api/v1/auth/sessions',
       }
 
-      resources :habitations,
-      resources :likes, only: [:create, :destroy]
+      resources :habitations
+      resources :favorites, only: [:create, :destroy]
     end
   end
 end
